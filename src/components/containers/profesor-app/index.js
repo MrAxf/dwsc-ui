@@ -23,7 +23,7 @@ export default class ProfesorApp extends PolymerElement {
   updateData(){
     axios.get(`/projects`)
       .then(data => this.data = data.data)
-      .catch(err => this.data = [{title: "adios", description: "sfsfs", supervisor: "adadadas<"}]);
+      .catch(err => console.log(err));
   }
 }
 

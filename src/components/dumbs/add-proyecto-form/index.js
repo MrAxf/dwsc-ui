@@ -63,17 +63,9 @@ export default class AddProyectoForm extends PolymerElement {
         this.addMessage="Proyecto añadido";
         axios.get(`/projects`)
           .then(data => this.data = data.data)
-          .catch(err => this.data = [{title: "hola", description: "sffddfs", supervisor: "adadadas<"}]);
+          .catch(err => console.log(err));
       })
-      .catch(err => {
-        this.title="";
-        this.description="";
-        this.supervisor="";
-        this.addMessage="Proyecto añadido";
-        axios.get(`/projects`)
-          .then(data => this.data = data.data)
-          .catch(err => this.data = [{title: "hola", description: "sffddfs", supervisor: "adadadas<"}]);
-      });
+      .catch(err => console.log(err));
   }
 
 }

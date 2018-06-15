@@ -1,0 +1,23 @@
+<table>
+  <tr>
+    <th>Título</th>
+    <th>Descripción</th>
+    <th>Supervisor</th>
+    <th>Alumnos interesados</th>
+    <th>Alumno asignado</th>
+  </tr>
+  <template is="dom-repeat" items="[[data]]">
+    <tr class="item">
+      <td>[[item.title]]</td>
+      <td>[[item.description]]</td>
+      <td>[[item.supervisor]]</td>
+      <td>[[item.interestedStudents]]</td>
+      <td>[[item.assignedStudent]]</td>
+    </tr>
+    <tr>
+      <td colspan="5">
+        <asignar-proyecto-form project-id="[[item.id]]" data={{data}}></asignar-proyecto-form>
+      </td>
+    </tr>
+  </template>
+</table>

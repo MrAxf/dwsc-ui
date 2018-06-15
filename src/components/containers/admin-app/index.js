@@ -5,8 +5,7 @@ import css from './style.pcss';
 import template from './template.html';
 
 import '../../dumbs/app-header';
-import '../../dumbs/bind-input';
-import '../../dumbs/projects-table-alumno';
+import '../../dumbs/projects-table-admin';
 
 export default class AdminApp extends PolymerElement {
 
@@ -24,13 +23,14 @@ export default class AdminApp extends PolymerElement {
   }
 
   constructor(){
+    super();
     this.updateData();
   }
 
   updateData(){
     axios.get(`/projects`)
       .then(data => this.data = data.data)
-      .catch(err => this.data = [{title: this.search, description: "sfsfs", supervisor: "adadadas<"}]);
+      .catch(err => console.log(err));
   }
 }
 

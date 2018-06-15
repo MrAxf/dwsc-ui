@@ -1,0 +1,11 @@
+<template is="dom-if" if="{{!completed}}">
+  <form on-submit="handleSubmit" >
+    <label for="dni">Id del alumno:</label>
+    <bind-input value="{{alumnoId}}" placeholder="Id de alumno..." type="number"></bind-input>
+    <input type="submit" value="Asignar proyecto">
+    {{errorMessage}}
+  </form>
+</template>
+<template is="dom-if" if="{{completed}}">
+  Proyecto asignado.
+</template>

@@ -7,13 +7,14 @@ import template from './template.html';
 
 import '../bind-input';
 
-export default class SolicitarInteresForm extends PolymerElement {
+export default class AsignarProyectoForm extends PolymerElement {
 
   static get properties() {
     return {
       data: {
         type: Array,
-        value: ""
+        value: "",
+        notify: true
       },
       projectId: {
         type: Number,
@@ -28,7 +29,7 @@ export default class SolicitarInteresForm extends PolymerElement {
 
   constructor(){
     super();
-    this.dni="";
+    this.alumnoId=1;
     this.completed=false;
     this.errorMessage="";
   }
@@ -36,15 +37,20 @@ export default class SolicitarInteresForm extends PolymerElement {
   handleSubmit(e){
     e.preventDefault();
     this.errorMessage="";
-    if(!this.dni){
+    if(!this.alumnoId){
       this.errorMessage="Campo vacío";
       return;
     } 
-    axios.get(`./solicitar/${this.projectId}/${this.dni}`)
-      .then(data => this.completed=true)
-      .catch(err => err => console.log(err));
+    axios.get(`./asignar/${this.projectId}/${this.alumnoId}`)
+      .then(data => {
+        this.completed=true;
+        axios.get(`/projects`)
+          .then(data => this.data = data.data)
+          .catch(err => err => console.log(err));
+      })
+      .catch(err => console.log(err));
   }
 
 }
 
-window.customElements.define('solicitar-interes-form', SolicitarInteresForm);
+window.customElements.define('asignar-proyecto-form', AsignarProyectoForm);
