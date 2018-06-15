@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const {GenerateSW} = require('workbox-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackShellPlugin = require('webpack-shell-plugin');
 
 const pkg = require('./package.json');
 
@@ -12,7 +13,7 @@ const moduleConf = require('./webpack-module.config');
 const nomoduleConf = require('./webpack-nomodule.config');
 
 const ENV = process.argv.find(arg => arg.includes('NODE_ENV=production')) ? 'production' : 'development';
-const IS_DEV_SERVER = process.argv.find(arg => arg.includes('webpack-dev-server'));
+const IS_DEV_SERVER = process.argv.find(arg => arg.includes('--watch'));
 const OUTPUT_PATH = IS_DEV_SERVER ? resolve('src') : resolve('dist');
 
 const processEnv = {
@@ -64,7 +65,7 @@ const copyStatics = {
  * Plugin configuration
  */
 const sharedPlugins = [new webpack.DefinePlugin({'process.env': processEnv})];
-const devPlugins = [new CopyWebpackPlugin(copyStatics.copyWebcomponents)];
+const devPlugins = [new CopyWebpackPlugin(copyStatics.copyWebcomponents), new WebpackShellPlugin({onBuildEnd:['http-server ./src']})];
 const buildPlugins = [
   new CopyWebpackPlugin(
     [].concat(copyStatics.copyWebcomponents, copyStatics.copyOthers)

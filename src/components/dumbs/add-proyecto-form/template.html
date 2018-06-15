@@ -1,0 +1,20 @@
+<h1>Añadir proyecto</h1>
+<form on-submit="handleSubmit">
+  <div class="input">
+    <label for="dni">Título:</label>
+    <bind-input value="{{title}}" placeholder="Título..." type="text" bind-style="width: 100%;"></bind-input>
+  </div>
+  <p>{{errorTitle}}</p>
+  <div class="input" style="width: 100%;">
+    <label for="dni">Descripción:</label>
+    <bind-text-area value="{{description}}" placeholder="Descripción..." bind-style="width: 100%;"></bind-text-area>
+  </div>
+  <p>{{errorDescription}}</p>
+  <div class="input">
+    <label for="dni">Supervisor:</label>
+    <bind-input value="{{supervisor}}" placeholder="Supervisor..." type="text" bind-style="width: 100%;"></bind-input>
+  </div>
+  <p>{{errorSupervisor}}</p>
+  <input type="submit" value="Añadir proyecto">
+  <p>{{addMessage}}</p>
+</form>

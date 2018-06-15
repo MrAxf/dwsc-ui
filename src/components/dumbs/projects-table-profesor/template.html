@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Título</th>
+    <th>Descripción</th>
+    <th>Supervisor</th>
+  </tr>
+  <template is="dom-repeat" items="[[data]]">
+    <tr class="item">
+      <td>[[item.title]]</td>
+      <td>[[item.description]]</td>
+      <td>[[item.supervisor]]</td>
+    </tr>
+  </template>
+</table>

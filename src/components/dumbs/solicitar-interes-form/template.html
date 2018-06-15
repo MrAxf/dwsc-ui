@@ -1,0 +1,11 @@
+<template is="dom-if" if="{{!completed}}">
+  <form on-submit="handleSubmit" >
+    <label for="dni">DNI:</label>
+    <bind-input value="{{dni}}" placeholder="DNI..." type="text"></bind-input>
+    <input type="submit" value="Solicitar proyecto">
+    {{errorMessage}}
+  </form>
+</template>
+<template is="dom-if" if="{{completed}}">
+  Solicitud enviada.
+</template>

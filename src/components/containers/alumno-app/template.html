@@ -1,0 +1,5 @@
+<section class="alumno-app">
+  <app-header title="Alumno"></app-header>
+  <bind-input value="{{search}}" placeholder="Buscar..." bind-style="width: calc(100% - 2px - 4em);height: 3em;padding: 0 2em;border-radius: 1em;" type="text" class="search-input"></bind-input>
+  <projects-table-alumno data ="[[data]]"></projects-table-alumno>
+</section>

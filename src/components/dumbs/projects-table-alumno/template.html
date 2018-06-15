@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>Título</th>
+    <th>Descripción</th>
+    <th>Supervisor</th>
+  </tr>
+  <template is="dom-repeat" items="[[data]]">
+    <tr class="item">
+      <td>[[item.title]]</td>
+      <td>[[item.description]]</td>
+      <td>[[item.supervisor]]</td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <solicitar-interes-form project-id="[[item.id]]"></solicitar-interes-form>
+      </td>
+    </tr>
+  </template>
+</table>
