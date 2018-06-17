@@ -1,4 +1,4 @@
-import {PolymerElement, html} from '@polymer/polymer/polymer-element';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element';
 import '@polymer/polymer/lib/elements/dom-if.js';
 import axios from 'axios'
 
@@ -24,44 +24,44 @@ export default class AddProyectoForm extends PolymerElement {
     return html([`<style>${css}</style> ${template}`]);
   }
 
-  constructor(){
+  constructor() {
     super();
-    this.title="";
-    this.description="";
-    this.supervisor="";
+    this.title = "";
+    this.description = "";
+    this.supervisor = "";
 
-    this.errorTitle="";
-    this.errorDescription="";
-    this.errorSupervisor="";
+    this.errorTitle = "";
+    this.errorDescription = "";
+    this.errorSupervisor = "";
 
-    this.addMessage="";
+    this.addMessage = "";
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
-    this.errorTitle="";
-    this.errorDescription="";
-    this.errorSupervisor="";
-    this.addMessage="";
-    if(!this.title){
-      this.errorTitle="Campo vacio";
+    this.errorTitle = "";
+    this.errorDescription = "";
+    this.errorSupervisor = "";
+    this.addMessage = "";
+    if (!this.title) {
+      this.errorTitle = "Campo vacio";
       return;
     }
-    if(!this.description){
-      this.errorDescription="Campo vacio";
+    if (!this.description) {
+      this.errorDescription = "Campo vacio";
       return;
-    } 
-    if(!this.supervisor){
-      this.errorSupervisor="Campo vacio";
+    }
+    if (!this.supervisor) {
+      this.errorSupervisor = "Campo vacio";
       return;
-    } 
-    axios.post(`./project`, {title: this.title, description: this.description, supervisor: this.supervisor})
+    }
+    axios.post(`./projects`, { title: this.title, description: this.description, supervisor: this.supervisor }, { timeout: 10000 })
       .then(data => {
-        this.title="";
-        this.description="";
-        this.supervisor="";
-        this.addMessage="Proyecto añadido";
-        axios.get(`/projects`)
+        this.title = "";
+        this.description = "";
+        this.supervisor = "";
+        this.addMessage = "Proyecto añadido";
+        axios.get(`/projects`, { timeout: 10000 })
           .then(data => this.data = data.data)
           .catch(err => console.log(err));
       })

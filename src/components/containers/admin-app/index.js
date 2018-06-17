@@ -1,4 +1,4 @@
-import {PolymerElement, html} from '@polymer/polymer/polymer-element';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element';
 import axios from 'axios';
 
 import css from './style.pcss';
@@ -22,13 +22,13 @@ export default class AdminApp extends PolymerElement {
     return html([`<style>${css}</style> ${template}`]);
   }
 
-  constructor(){
+  constructor() {
     super();
     this.updateData();
   }
 
-  updateData(){
-    axios.get(`/projects`)
+  updateData() {
+    axios.get(`/projects`, { timeout: 10000 })
       .then(data => this.data = data.data)
       .catch(err => console.log(err));
   }

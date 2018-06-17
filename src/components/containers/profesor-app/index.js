@@ -21,7 +21,7 @@ export default class ProfesorApp extends PolymerElement {
   }
 
   updateData(){
-    axios.get(`/projects`)
+    axios.get(`/projects`, { timeout: 10000 })
       .then(data => this.data = data.data)
       .catch(err => console.log(err));
   }
