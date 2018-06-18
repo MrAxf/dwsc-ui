@@ -14,7 +14,7 @@ export default class NewsContainer extends PolymerElement {
   constructor(){
     super();
     this.news = [];
-    axios.get("http://localhost:8080/ProductorConsumidor/GetAll", { timeout: 10000, responseType: 'text' })
+    axios.get("http://localhost:8080/ProductorConsumidor/GetAll", { timeout: 100000, responseType: 'text' })
       .then(data => {
         const res = [];
         const parser = new DOMParser();

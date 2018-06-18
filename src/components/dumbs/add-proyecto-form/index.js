@@ -55,13 +55,13 @@ export default class AddProyectoForm extends PolymerElement {
       this.errorSupervisor = "Campo vacio";
       return;
     }
-    axios.post(`./projects`, { title: this.title, description: this.description, supervisor: this.supervisor }, { timeout: 10000 })
+    axios.post(`./projects`, { title: this.title, description: this.description, supervisor: this.supervisor }, { timeout: 100000 })
       .then(data => {
         this.title = "";
         this.description = "";
         this.supervisor = "";
         this.addMessage = "Proyecto añadido";
-        axios.get(`/projects`, { timeout: 10000 })
+        axios.get(`/projects`, { timeout: 100000 })
           .then(data => this.data = data.data)
           .catch(err => console.log(err));
       })

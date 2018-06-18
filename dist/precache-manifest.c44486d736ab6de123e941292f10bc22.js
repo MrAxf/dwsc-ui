@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "assets/icons/browserconfig.xml"
   },
   {
-    "revision": "226a2e0f54fb25d01507",
-    "url": "bundle.js"
+    "revision": "f80ca4a9de5eeac3fbe0",
+    "url": "module.bundle.js"
   },
   {
     "revision": "fc5fd8d2c8b27139307536abb8aecda7",
@@ -20,20 +20,24 @@ self.__precacheManifest = [
     "url": "vendor/custom-elements-es5-adapter.js"
   },
   {
-    "revision": "02161ac001ef3bdf8b5831bb336202f4",
-    "url": "index.html"
+    "revision": "f13bbbbf647b7922575a7894367ddaaf",
+    "url": "vendor/webcomponents-loader.js"
   },
   {
     "revision": "c53b10e1469a4d6b1108cd5ec995875b",
     "url": "vendor/webcomponents-hi-sd-ce.js"
   },
   {
-    "revision": "f13bbbbf647b7922575a7894367ddaaf",
-    "url": "vendor/webcomponents-loader.js"
+    "revision": "1a4091319f83de18a8093e9b37e47875",
+    "url": "assets/icons/polymer-skeleton-192x192.png"
   },
   {
     "revision": "54d8358fb31ab5b83dab3df6098e9f35",
     "url": "assets/logo.svg"
+  },
+  {
+    "revision": "02161ac001ef3bdf8b5831bb336202f4",
+    "url": "index.html"
   },
   {
     "revision": "8fa975f4477f238d81b18d928c8fafae",
@@ -50,10 +54,6 @@ self.__precacheManifest = [
   {
     "revision": "b06c7fa69524acb9784753237a82ae99",
     "url": "assets/icons/polymer-skeleton-384x384.png"
-  },
-  {
-    "revision": "1a4091319f83de18a8093e9b37e47875",
-    "url": "assets/icons/polymer-skeleton-192x192.png"
   },
   {
     "revision": "15f15453a7d68d404b02a319cfd9e6b1",

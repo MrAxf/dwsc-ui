@@ -28,7 +28,7 @@ export default class AdminApp extends PolymerElement {
   }
 
   updateData() {
-    axios.get(`/projects`, { timeout: 10000 })
+    axios.get(`/projects`, { timeout: 100000 })
       .then(data => this.data = data.data)
       .catch(err => console.log(err));
   }

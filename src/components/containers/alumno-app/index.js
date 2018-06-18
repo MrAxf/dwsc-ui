@@ -35,7 +35,7 @@ export default class AlumnoApp extends PolymerElement {
   }
 
   searchChange(newValue){
-    axios.get(`/projects/${newValue}`,{ timeout: 10000 })
+    axios.get(`/projects/${newValue}`,{ timeout: 100000 })
       .then(data => this.data = data.data)
       .catch(err => console.log(err));
   }

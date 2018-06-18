@@ -40,7 +40,7 @@ export default class SolicitarInteresForm extends PolymerElement {
       this.errorMessage="Campo vacío";
       return;
     } 
-    axios.get(`./solicitar/${this.projectId}/${this.dni}`, { timeout: 10000 })
+    axios.get(`./solicitar/${this.projectId}/${this.dni}`, { timeout: 100000 })
       .then(data => this.completed=true)
       .catch(err => err => console.log(err));
   }
