@@ -7,6 +7,7 @@ import template from './template.html';
 import '../../dumbs/app-header';
 import '../../dumbs/bind-input';
 import '../../dumbs/projects-table-alumno';
+import '../../dumbs/news-container';
 
 export default class AlumnoApp extends PolymerElement {
 

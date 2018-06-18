@@ -713,7 +713,7 @@ eval("module.exports = \"<section class=\\\"alumno-app\\\">\\r\\n  <app-header t
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _polymerElement = __webpack_require__(/*! @polymer/polymer/polymer-element */ \"./node_modules/@polymer/polymer/polymer-element.js\");\n\nvar _axios = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n\nvar _axios2 = _interopRequireDefault(_axios);\n\nvar _style = __webpack_require__(/*! ./style.pcss */ \"./src/components/containers/alumno-app/style.pcss\");\n\nvar _style2 = _interopRequireDefault(_style);\n\nvar _template = __webpack_require__(/*! ./template.html */ \"./src/components/containers/alumno-app/template.html\");\n\nvar _template2 = _interopRequireDefault(_template);\n\n__webpack_require__(/*! ../../dumbs/app-header */ \"./src/components/dumbs/app-header/index.js\");\n\n__webpack_require__(/*! ../../dumbs/bind-input */ \"./src/components/dumbs/bind-input/index.js\");\n\n__webpack_require__(/*! ../../dumbs/projects-table-alumno */ \"./src/components/dumbs/projects-table-alumno/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nclass AlumnoApp extends _polymerElement.PolymerElement {\n\n  static get properties() {\n    return {\n      search: {\n        type: String,\n        value: \"\"\n      },\n      data: {\n        type: Array,\n        value: []\n      }\n    };\n  }\n\n  static get observers() {\n    return ['searchChange(search)'];\n  }\n\n  static get template() {\n    return (0, _polymerElement.html)([`<style>${_style2.default}</style> ${_template2.default}`]);\n  }\n\n  searchChange(newValue) {\n    _axios2.default.get(`/projects/${newValue}`, { timeout: 10000 }).then(data => this.data = data.data).catch(err => console.log(err));\n  }\n}\n\nexports.default = AlumnoApp;\nwindow.customElements.define('alumno-app', AlumnoApp);\n\n//# sourceURL=webpack:///./src/components/containers/alumno-app/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _polymerElement = __webpack_require__(/*! @polymer/polymer/polymer-element */ \"./node_modules/@polymer/polymer/polymer-element.js\");\n\nvar _axios = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n\nvar _axios2 = _interopRequireDefault(_axios);\n\nvar _style = __webpack_require__(/*! ./style.pcss */ \"./src/components/containers/alumno-app/style.pcss\");\n\nvar _style2 = _interopRequireDefault(_style);\n\nvar _template = __webpack_require__(/*! ./template.html */ \"./src/components/containers/alumno-app/template.html\");\n\nvar _template2 = _interopRequireDefault(_template);\n\n__webpack_require__(/*! ../../dumbs/app-header */ \"./src/components/dumbs/app-header/index.js\");\n\n__webpack_require__(/*! ../../dumbs/bind-input */ \"./src/components/dumbs/bind-input/index.js\");\n\n__webpack_require__(/*! ../../dumbs/projects-table-alumno */ \"./src/components/dumbs/projects-table-alumno/index.js\");\n\n__webpack_require__(/*! ../../dumbs/news-container */ \"./src/components/dumbs/news-container/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nclass AlumnoApp extends _polymerElement.PolymerElement {\n\n  static get properties() {\n    return {\n      search: {\n        type: String,\n        value: \"\"\n      },\n      data: {\n        type: Array,\n        value: []\n      }\n    };\n  }\n\n  static get observers() {\n    return ['searchChange(search)'];\n  }\n\n  static get template() {\n    return (0, _polymerElement.html)([`<style>${_style2.default}</style> ${_template2.default}`]);\n  }\n\n  searchChange(newValue) {\n    _axios2.default.get(`/projects/${newValue}`, { timeout: 10000 }).then(data => this.data = data.data).catch(err => console.log(err));\n  }\n}\n\nexports.default = AlumnoApp;\nwindow.customElements.define('alumno-app', AlumnoApp);\n\n//# sourceURL=webpack:///./src/components/containers/alumno-app/index.js?");
 
 /***/ }),
 
@@ -735,7 +735,7 @@ eval("module.exports = \".search-input{position:relative;display:block;overflow:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"<section class=\\\"alumno-app\\\">\\r\\n  <app-header title=\\\"Alumno\\\"></app-header>\\r\\n  <bind-input value=\\\"{{search}}\\\" placeholder=\\\"Buscar...\\\" bind-style=\\\"width: calc(100% - 2px - 4em);height: 3em;padding: 0 2em;border-radius: 1em;\\\" type=\\\"text\\\" class=\\\"search-input\\\"></bind-input>\\r\\n  <projects-table-alumno data =\\\"[[data]]\\\"></projects-table-alumno>\\r\\n</section>\"\n\n//# sourceURL=webpack:///./src/components/containers/alumno-app/template.html?");
+eval("module.exports = \"<section class=\\\"alumno-app\\\">\\r\\n  <app-header title=\\\"Alumno\\\"></app-header>\\r\\n  <bind-input value=\\\"{{search}}\\\" placeholder=\\\"Buscar...\\\" bind-style=\\\"width: calc(100% - 2px - 4em);height: 3em;padding: 0 2em;border-radius: 1em;\\\" type=\\\"text\\\" class=\\\"search-input\\\"></bind-input>\\r\\n  <projects-table-alumno data =\\\"[[data]]\\\"></projects-table-alumno>\\r\\n  <news-container style=\\\"margin-top: 2em;\\\"></news-container>\\r\\n</section>\"\n\n//# sourceURL=webpack:///./src/components/containers/alumno-app/template.html?");
 
 /***/ }),
 
@@ -940,6 +940,40 @@ eval("module.exports = \"\"\n\n//# sourceURL=webpack:///./src/components/dumbs/b
 /***/ (function(module, exports) {
 
 eval("module.exports = \"<textarea placeholder$=\\\"[[placeholder]]\\\" value=\\\"{{value}}\\\" style$=\\\"[[bindStyle]]\\\" on-input=\\\"handleChange\\\"></textarea>\\r\\n\"\n\n//# sourceURL=webpack:///./src/components/dumbs/bind-text-area/template.html?");
+
+/***/ }),
+
+/***/ "./src/components/dumbs/news-container/index.js":
+/*!******************************************************!*\
+  !*** ./src/components/dumbs/news-container/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _polymerElement = __webpack_require__(/*! @polymer/polymer/polymer-element */ \"./node_modules/@polymer/polymer/polymer-element.js\");\n\n__webpack_require__(/*! @polymer/polymer/lib/elements/dom-repeat.js */ \"./node_modules/@polymer/polymer/lib/elements/dom-repeat.js\");\n\nvar _axios = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n\nvar _axios2 = _interopRequireDefault(_axios);\n\nvar _style = __webpack_require__(/*! ./style.pcss */ \"./src/components/dumbs/news-container/style.pcss\");\n\nvar _style2 = _interopRequireDefault(_style);\n\nvar _template = __webpack_require__(/*! ./template.html */ \"./src/components/dumbs/news-container/template.html\");\n\nvar _template2 = _interopRequireDefault(_template);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nclass NewsContainer extends _polymerElement.PolymerElement {\n\n  static get template() {\n    return (0, _polymerElement.html)([`<style>${_style2.default}</style> ${_template2.default}`]);\n  }\n\n  constructor() {\n    super();\n    this.news = [];\n    _axios2.default.get(\"http://localhost:8080/ProductorConsumidor/GetAll\", { timeout: 10000, responseType: 'text' }).then(data => {\n      const res = [];\n      const parser = new DOMParser();\n      const xmlDoc = parser.parseFromString(data.data, \"text/xml\");\n      const xmlData = xmlDoc.getElementsByTagName(\"new\");\n      for (let i = 0; i < xmlData.length; i++) {\n        res.push({\n          desc: xmlData[i].getElementsByTagName(\"desc\")[0].innerHTML,\n          content: xmlData[i].getElementsByTagName(\"content\")[0].innerHTML,\n          date: xmlData[i].getElementsByTagName(\"date\")[0].innerHTML\n        });\n      }\n      this.news = res;\n    }).catch(err => console.log(err));\n  }\n\n}\n\nexports.default = NewsContainer;\nwindow.customElements.define('news-container', NewsContainer);\n\n//# sourceURL=webpack:///./src/components/dumbs/news-container/index.js?");
+
+/***/ }),
+
+/***/ "./src/components/dumbs/news-container/style.pcss":
+/*!********************************************************!*\
+  !*** ./src/components/dumbs/news-container/style.pcss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"\"\n\n//# sourceURL=webpack:///./src/components/dumbs/news-container/style.pcss?");
+
+/***/ }),
+
+/***/ "./src/components/dumbs/news-container/template.html":
+/*!***********************************************************!*\
+  !*** ./src/components/dumbs/news-container/template.html ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<h1>Noticias</h1>\\r\\n<template is=\\\"dom-repeat\\\" items=\\\"[[news]]\\\">\\r\\n  <hr/>\\r\\n  <h2>[[item.desc]]</h2>\\r\\n  <p>[[item.content]]</p>\\r\\n  <p>[[item.date]]</p>\\r\\n</template>\\r\\n<hr/>\\r\\n\"\n\n//# sourceURL=webpack:///./src/components/dumbs/news-container/template.html?");
 
 /***/ }),
 
